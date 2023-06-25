@@ -18,7 +18,7 @@ let s = [[240, 240], [240, 260],[240, 280],[240,300]];
 let xs = 0;
 let ys = 0;
 let t = 20;
-let direction = "ArrowUp"
+let direction = "Pause"
 let l = false;
 
 window.addEventListener("keydown", (e)=>{
@@ -109,8 +109,6 @@ function move(){
     gameOver();
     clr();
     affs();
-    col();
-    row();
     eat();
     snake();
 }
@@ -127,7 +125,7 @@ function food(){
     ys = ys - (ys%t);
 }
 
-function eat() {
+function eat(){
     if(s[0][0] == xs && s[0][1] == ys){
         l = true;
         food()
@@ -144,6 +142,7 @@ function showGO(){
     win.innerHTML =  "Game Over! <br /> Score : " + (s.length-4)*10;
     modal.style.display = "flex";
     direction = "none";
+    restart.value = "Restart"
 }
 
 function gameOver(){
@@ -164,7 +163,7 @@ function changeScore(){
     score.innerText = "Score : " + (s.length-4)*10;
 }
 
-setInterval(move, 150);
+setInterval(move, 100);
 food();
 col();
 row();
