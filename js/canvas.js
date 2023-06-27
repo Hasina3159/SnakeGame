@@ -82,18 +82,6 @@ function snake(){
     })
 }
 
-function col(){
-    for(let i = 0; i < 500; i += t){
-        ctx.fillStyle = "white";
-        ctx.fillRect(i, 0, 1, 500)
-    }
-}
-function row(){
-    for(let i = 0; i < 500; i += t){
-        ctx.fillStyle = "white";
-        ctx.fillRect(0, i, 500, 1)
-    }
-}
 
 function move(){
     if(direction=="ArrowUp"){
@@ -165,5 +153,3 @@ function changeScore(){
 
 setInterval(move, 100);
 food();
-col();
-row();
